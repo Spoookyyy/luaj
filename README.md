@@ -73,4 +73,4 @@ When Luaj is integrated into external projects, we ask to honor the license agre
 
 # About
 
-Luaj is a fork of LuaU with type checking.
+Luaj is a fork of LuaU with type checking, Provided a faster compiler and makes string functions faster!
