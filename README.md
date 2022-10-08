@@ -1,11 +1,11 @@
 Luaj ![CI](https://github.com/Roblox/luau/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/Roblox/luaj/branch/master/graph/badge.svg?token=S3U44WN416)](https://codecov.io/gh/Roblox/luau)
 ====
 
-It is designed to be backwards compatible with Lua 5.1, as well as incorporating [some features](https://luau-lang.org/compatibility) from future Lua releases, but also expands the feature set (most notably with type annotations). Luau is largely implemented from scratch, with the language runtime being a very heavily modified version of Lua 5.1 runtime, with completely rewritten interpreter and other [performance innovations](https://luau-lang.org/performance). The runtime mostly preserves Lua 5.1 API, so existing bindings should be more or less compatible with a few caveats.
+It is designed to be backwards compatible with Lua 5.1, as well as incorporating [some features](https://luau-lang.org/compatibility) from future Lua releases, but also expands the feature set (most notably with type annotations). Luaj is largely implemented from scratch, with the language runtime being a very heavily modified version of Lua 5.1 runtime, with completely rewritten interpreter and other [performance innovations](https://luau-lang.org/performance). The runtime mostly preserves Lua 5.1 API, so existing bindings should be more or less compatible with a few caveats.
 
-Luau is used by Roblox game developers to write game code, as well as by Roblox engineers to implement large parts of the user-facing application code as well as portions of the editor (Roblox Studio) as plugins. Roblox chose to open-source Luau to foster collaboration within the Roblox community as well as to allow other companies and communities to benefit from the ongoing language and runtime innovation.
+Luaj is used by Roblox game developers to write game code, as well as by Roblox engineers to implement large parts of the user-facing application code as well as portions of the editor (Roblox Studio) as plugins. Roblox chose to open-source Luaj to foster collaboration within the Roblox community as well as to allow other companies and communities to benefit from the ongoing language and runtime innovation.
 
-This repository hosts source code for the language implementation and associated tooling, documentation for the language as well as RFCs and other materials. The documentation portion of this repository can be viewed at https://luau-lang.org/
+This repository hosts source code for the language implementation and associated tooling, documentation for the language as well as RFCs and other materials. The documentation portion of this repository can be viewed at https://luaJ-lang.org/
 
 # Usage
 
@@ -35,7 +35,7 @@ Alternatively, on Linux/macOS you can use make:
 make config=release luau luau-analyze
 ```
 
-To integrate Luau into your CMake application projects, at the minimum you'll need to depend on `Luau.Compiler` and `Luau.VM` projects. From there you need to create a new Luau state (using Lua 5.x API such as `lua_newstate`), compile source to bytecode and load it into the VM like this:
+To integrate Luaj into your CMake application projects, at the minimum you'll need to depend on `Luau.Compiler` and `Luau.VM` projects. From there you need to create a new Luaj state (using Lua 5.x API such as `lua_newstate`), compile source to bytecode and load it into the VM like this:
 
 ```cpp
 // needs lua.h and luacode.h
@@ -48,24 +48,29 @@ if (result == 0)
     return 1; /* return chunk main function */
 ```
 
-For more details about the use of host API you currently need to consult [Lua 5.x API](https://www.lua.org/manual/5.1/manual.html#3). Luau closely tracks that API but has a few deviations, such as the need to compile source separately (which is important to be able to deploy VM without a compiler), or lack of `__gc` support (use `lua_newuserdatadtor` instead).
+For more details about the use of host API you currently need to consult [Lua 5.x API](https://www.lua.org/manual/5.1/manual.html#3). Luaj closely tracks that API but has a few deviations, such as the need to compile source separately (which is important to be able to deploy VM without a compiler), or lack of `__gc` support (use `lua_newuserdatadtor` instead).
 
 To gain advantage of many performance improvements it's highly recommended to use `safeenv` feature, which sandboxes individual scripts' global tables from each other as well as protects builtin libraries from monkey-patching. For this to work you need to call `luaL_sandbox` for the global state and `luaL_sandboxthread` for each new script's execution thread.
 
 # Testing
 
-Luau has an internal test suite; in CMake builds it is split into two targets, `Luau.UnitTest` (for bytecode compiler and type checker/linter tests) and `Luau.Conformance` (for VM tests). The unit tests are written in C++, whereas the conformance tests are largely written in Luau (see `tests/conformance`).
+Luaj has an internal test suite; in CMake builds it is split into two targets, `Luau.UnitTest` (for bytecode compiler and type checker/linter tests) and `Luau.Conformance` (for VM tests). The unit tests are written in C++, whereas the conformance tests are largely written in Luaj (see `tests/conformance`).
 
 Makefile builds combine both into a single target and can be ran via `make test`.
 
 # Dependencies
 
-Luau uses C++ as its implementation language. The runtime requires C++11, whereas the compiler and analysis components require C++17. It should build without issues using Microsoft Visual Studio 2017 or later, or gcc-7 or clang-7 or later.
+Luaj uses C++ as its implementation language. The runtime requires C++11, whereas the compiler and analysis components require C++17. It should build without issues using Microsoft Visual Studio 2017 or later, or gcc-7 or clang-7 or later.
 
-Other than the STL/CRT, Luau library components don't have external dependencies. The test suite depends on [doctest](https://github.com/onqtam/doctest) testing framework, and the REPL command-line depends on [isocline](https://github.com/daanx/isocline).
+Other than the STL/CRT, Luaj library components don't have external dependencies. The test suite depends on [doctest](https://github.com/onqtam/doctest) testing framework, and the REPL command-line depends on [isocline](https://github.com/daanx/isocline).
 
 # License
 
-Luau implementation is distributed under the terms of [MIT License](https://github.com/Roblox/luau/blob/master/LICENSE.txt). It is based on Lua 5.x implementation that is MIT licensed as well.
+Luaj implementation is distributed under the terms of [MIT License](https://github.com/Roblox/luau/blob/master/LICENSE.txt). It is based on Lua 5.x implementation that is MIT licensed as well.
 
-When Luau is integrated into external projects, we ask to honor the license agreement and include Luau attribution into the user-facing product documentation. The attribution using [Luau logo](https://github.com/Roblox/luau/blob/master/docs/logo.svg) is also encouraged.
+When Luaj is integrated into external projects, we ask to honor the license agreement and include Luaj attribution into the user-facing product documentation. The attribution using [Luau logo](https://github.com/Roblox/luau/blob/master/docs/logo.svg) is also encouraged.
+
+
+# About
+
+Luaj is a fork of LuaU with type checking.
