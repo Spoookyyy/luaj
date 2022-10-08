@@ -1,7 +1,5 @@
-Luau ![CI](https://github.com/Roblox/luau/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/Roblox/luau/branch/master/graph/badge.svg?token=S3U44WN416)](https://codecov.io/gh/Roblox/luau)
+Luaj ![CI](https://github.com/Roblox/luau/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/Roblox/luaj/branch/master/graph/badge.svg?token=S3U44WN416)](https://codecov.io/gh/Roblox/luau)
 ====
-
-Luau (lowercase u, /ˈlu.aʊ/) is a fast, small, safe, gradually typed embeddable scripting language derived from [Lua](https://lua.org).
 
 It is designed to be backwards compatible with Lua 5.1, as well as incorporating [some features](https://luau-lang.org/compatibility) from future Lua releases, but also expands the feature set (most notably with type annotations). Luau is largely implemented from scratch, with the language runtime being a very heavily modified version of Lua 5.1 runtime, with completely rewritten interpreter and other [performance innovations](https://luau-lang.org/performance). The runtime mostly preserves Lua 5.1 API, so existing bindings should be more or less compatible with a few caveats.
 
@@ -11,18 +9,18 @@ This repository hosts source code for the language implementation and associated
 
 # Usage
 
-Luau is an embeddable language, but it also comes with two command-line tools by default, `luau` and `luau-analyze`.
+Luaj is an embeddable language, but it also comes with two command-line tools by default, `luaj` and `luaj-analyze`.
 
-`luau` is a command-line REPL and can also run input files. Note that REPL runs in a sandboxed environment and as such doesn't have access to the underlying file system except for ability to `require` modules.
+`luaj` is a command-line REPL and can also run input files. Note that REPL runs in a sandboxed environment and as such doesn't have access to the underlying file system except for ability to `require` modules.
 
-`luau-analyze` is a command-line type checker and linter; given a set of input files, it produces errors/warnings according to the file configuration, which can be customized by using `--!` comments in the files or [`.luaurc`](https://github.com/Roblox/luau/blob/master/rfcs/config-luaurc.md) files. For details please refer to [type checking]( https://luau-lang.org/typecheck) and [linting](https://luau-lang.org/lint) documentation.
+`luau-analyze` is a command-line type checker and linter; given a set of input files, it produces errors/warnings according to the file configuration, which can be customized by using `--!` comments in the files or [`.luaurc`](https://github.com/Roblox/luaj/blob/master/rfcs/config-luaurj.md) files. For details please refer to [type checking]( https://luaj-lang.org/typecheck) and [linting](https://luau-lang.org/lint) documentation.
 
-You can download the binaries from [a recent release](https://github.com/Roblox/luau/releases).
+You can download the binaries from [a recent release](https://github.com/Roblox/luaj/releases).
 
 
 # Building
 
-To build Luau tools or tests yourself, you can use CMake on all platforms:
+To build luaj tools or tests yourself, you can use CMake on all platforms:
 
 ```sh
 mkdir cmake && cd cmake
